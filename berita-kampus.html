@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita Kampus - Universitas Catur Insan Cendekia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --secondary-blue: #0077cc;
+            --dark-blue: #003366;
+            --accent-yellow: #ffc107;
+            --card-hover-effect: translateY(-10px) rotate(1deg);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .news-hero {
+            background: linear-gradient(135deg, rgba(0, 86, 179, 0.9) 0%, rgba(0, 51, 102, 0.9) 100%),
+                url('assets/img/news-bg.jpg') center/cover;
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/img/pattern.png') repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            opacity: 0.9;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .floating-tag {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            animation: float 8s ease-in-out infinite;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tag-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .tag-2 {
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .news-section {
+            padding: 80px 0;
+            background: #f9fbfd;
+            position: relative;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 2.2rem;
+            color: var(--dark-blue);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-blue);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .view-all:hover {
+            gap: 12px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .featured-news {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .featured-news:hover {
+            transform: var(--card-hover-effect);
+            box-shadow: 0 15px 40px rgba(0, 86, 179, 0.15);
+        }
+
+        .featured-image {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .featured-news:hover .featured-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-category {
+            display: inline-block;
+            background: var(--accent-yellow);
+            color: var(--dark-blue);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        .featured-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .featured-news:hover .featured-content h3 {
+            color: var(--primary-blue);
+        }
+
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .featured-meta i {
+            color: var(--primary-blue);
+            margin-right: 5px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .news-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .news-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .news-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .news-card:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        .news-card:hover {
+            transform: var(--card-hover-effect);
+            box-shadow: 0 15px 40px rgba(0, 86, 179, 0.15);
+        }
+
+        .card-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .news-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .news-category {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .card-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .news-card:hover .card-content h4 {
+            color: var(--primary-blue);
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .news-meta i {
+            color: var(--primary-blue);
+            font-size: 12px;
+        }
+
+        .news-ticker {
+            background: var(--dark-blue);
+            color: white;
+            padding: 15px 0;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ticker-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .ticker-label {
+            background: var(--accent-yellow);
+            color: var(--dark-blue);
+            padding: 8px 20px;
+            font-weight: 600;
+            border-radius: 50px;
+            white-space: nowrap;
+            animation: pulse 2s infinite;
+        }
+
+        .ticker-content {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+
+        .ticker-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .ticker-item a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .ticker-date {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .more-news-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .more-news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 15px;
+        }
+
+        .more-news-title {
+            font-family: "Playfair Display", serif;
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+            position: relative;
+        }
+
+        .more-news-title::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-blue);
+        }
+
+        .more-news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .compact-news-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .compact-news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.15);
+        }
+
+        .compact-image {
+            height: 160px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .compact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .compact-news-card:hover .compact-image img {
+            transform: scale(1.08);
+        }
+
+        .compact-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .compact-category {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .compact-content h5 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--dark-blue);
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .compact-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #666;
+            font-size: 12px;
+            margin-top: auto;
+        }
+
+        .compact-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .compact-date i {
+            color: var(--primary-blue);
+            font-size: 11px;
+        }
+
+        .view-more-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .view-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 30px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.2);
+        }
+
+        .view-more-btn:hover {
+            background: var(--dark-blue);
+            transform: translateY(-3px);
+            gap: 12px;
+            box-shadow: 0 8px 25px rgba(0, 86, 179, 0.3);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+            gap: 10px;
+        }
+
+        .page-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .page-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-btn.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 86, 179, 0.2);
+        }
+
+        @media (max-width: 1200px) {
+            .featured-news {
+                grid-template-columns: 1fr;
+                grid-column: span 1;
+            }
+
+            .featured-image {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .news-hero {
+                padding: 120px 0 80px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-title h2,
+            .more-news-title {
+                font-size: 1.8rem;
+            }
+
+            .news-grid,
+            .more-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-content {
+                padding: 25px;
+            }
+
+            .featured-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .ticker-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .compact-image {
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .featured-image {
+                height: 200px;
+            }
+
+            .card-content h4,
+            .compact-content h5 {
+                font-size: 1.1rem;
+            }
+
+            .more-news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 18px 30px;
+            border-radius: 50px;
+            border: none;
+            font-size: 16px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            box-shadow: 0 5px 30px rgba(0, 86, 179, 0.3);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 13px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-btn:hover {
+            background: var(--dark-blue);
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+        <img src="assets/img/cic.png" alt="UCIC Logo" class="loader-logo">
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img">
+                    <img src="assets/img/ucic.png" alt="UCIC Logo">
+                </div>
+                <div class="logo-text">Universitas Catur Insan Cendekia<span>Membangun Generasi Berkarakter dan
+                        Berkompetensi</span></div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="https://pmb.cic.ac.id/" target="_blank">PMB</a></li>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="tentang-ucic.html">Tentang UCIC</a></li>
+                    <li><a href="fakultas.html">Fakultas</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="active">Berita <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="pengumuman.html">Pengumuman Kampus</a></li>
+                            <li><a href="berita-kampus.html">Berita Kampus</a></li>
+                            <li><a href="kegiatan.html">Kegiatan Kampus</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="beasiswa.html">Beasiswa</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <section class="news-hero">
+        <div class="floating-tag tag-1"><i class="fas fa-newspaper"></i> Update Terkini</div>
+        <div class="floating-tag tag-2"><i class="fas fa-calendar-alt"></i> Event Mendatang</div>
+
+        <div class="hero-content">
+            <h1>Berita Kampus UCIC</h1>
+            <p>Ikuti perkembangan terbaru seputar kegiatan akademik, prestasi, dan kehidupan kampus Universitas Catur
+                Insan Cendekia</p>
+        </div>
+        <!-- Tambahkan di bawah .section-header -->
+        <div class="search-container" style="margin-bottom: 30px;">
+            <input type="text" class="search-box" placeholder="Cari berita...">
+            <button class="search-btn"><i class="fas fa-search"></i> Cari</button>
+        </div>
+    </section>
+
+    <section class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>Berita Utama</h2>
+                </div>
+                <a href="#" class="view-all">
+                    Lihat Semua Berita <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="news-grid">
+                <div class="featured-news">
+                    <div class="featured-image">
+                        <img src="assets/img/akreditasi.jpg"
+                            alt="Berita Utama" loading="lazy">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-category">HIGHLIGHT</span>
+                        <h3>UCIC Meraih Akreditasi A untuk Program Studi Sistem Informasi</h3>
+                        <div class="featured-meta">
+                            <span><i class="far fa-calendar-alt"></i> 15 Juni 2025</span>
+                            <span><i class="far fa-user"></i> Humas UCIC</span>
+                            <span><i class="far fa-eye"></i> 1.2K Dilihat</span>
+                        </div>
+                        <p>Universitas Catur Insan Cendekia berhasil meraih akreditasi Baik Sekali dari BAN-PT untuk Program Studi
+                            Sistem Informasi, menandakan kualitas pendidikan yang semakin meningkat.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                            alt="Seminar Nasional" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="news-category">SEMINAR</span>
+                        <h4>Seminar Nasional Teknologi Pendidikan di Era Digital</h4>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> 10 Juni 2025</span>
+                            <span><i class="far fa-eye"></i> 856 Dilihat</span>
+                        </div>
+                        <p>Fakultas Teknologi Informasi menyelenggarakan seminar nasional dengan tema "Inovasi Teknologi
+                            Pendidikan di Era Digital 5.0".</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                            alt="PMB" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="news-category">PENERIMAAN</span>
+                        <h4>Pembukaan PMB Gelombang II Tahun Akademik 2025/2026</h4>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> 5 Juni 2025</span>
+                            <span><i class="far fa-eye"></i> 1.5K Dilihat</span>
+                        </div>
+                        <p>Universitas Catur Insan Cendekia membuka pendaftaran mahasiswa baru untuk gelombang II tahun
+                            akademik 2025/2026.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                            alt="Beasiswa" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="news-category">BEASISWA</span>
+                        <h4>30 Mahasiswa UCIC Terima Beasiswa Prestasi 2025</h4>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> 1 Juni 2025</span>
+                            <span><i class="far fa-eye"></i> 932 Dilihat</span>
+                        </div>
+                        <p>Sebanyak 30 mahasiswa berprestasi Universitas Catur Insan Cendekia menerima beasiswa prestasi
+                            untuk semester ganjil 2025/2026.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                            alt="Kompetisi" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="news-category">PRESTASI</span>
+                        <h4>Tim Robotika UCIC Juara Kompetisi Nasional</h4>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> 25 Mei 2025</span>
+                            <span><i class="far fa-eye"></i> 1.1K Dilihat</span>
+                        </div>
+                        <p>Tim robotika Fakultas Teknologi Informasi UCIC berhasil meraih juara 1 dalam kompetisi robot
+                            nasional yang diadakan di Jakarta.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-ticker">
+                <div class="container">
+                    <div class="ticker-container">
+                        <div class="ticker-label">
+                            <i class="fas fa-bolt"></i> BERITA TERKINI
+                        </div>
+                        <div class="ticker-content">
+                            <div class="ticker-item">
+                                <span class="ticker-date">18 Jun</span>
+                                <a href="#">Pendaftaran Lomba Debat Mahasiswa Tingkat Nasional Dibuka</a>
+                            </div>
+                            <div class="ticker-item">
+                                <span class="ticker-date">17 Jun</span>
+                                <a href="#">UCIC Gandeng Perusahaan IT untuk Program Magang Bersertifikat</a>
+                            </div>
+                            <div class="ticker-item">
+                                <span class="ticker-date">16 Jun</span>
+                                <a href="#">Seminar Kewirausahaan dengan Pembicara Founder Startup Unicorn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="more-news-section">
+                <div class="container">
+                    <div class="more-news-header">
+                        <h3 class="more-news-title">Berita Lainnya</h3>
+                        <div class="news-count">Total 24 Berita</div>
+                    </div>
+
+                    <div class="more-news-grid">
+                        <div class="compact-news-card">
+                            <div class="compact-image">
+                                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Workshop" loading="lazy">
+                            </div>
+                            <div class="compact-content">
+                                <span class="compact-category">WORKSHOP</span>
+                                <h5>Workshop Penulisan Karya Ilmiah untuk Mahasiswa Baru</h5>
+                                <div class="compact-meta">
+                                    <span class="compact-date"><i class="far fa-calendar-alt"></i> 14 Juni 2025</span>
+                                    <span><i class="far fa-eye"></i> 324</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="compact-news-card">
+                            <div class="compact-image">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Kerjasama" loading="lazy">
+                            </div>
+                            <div class="compact-content">
+                                <span class="compact-category">KERJASAMA</span>
+                                <h5>UCIC Jalin Kerjasama dengan Universitas di Australia</h5>
+                                <div class="compact-meta">
+                                    <span class="compact-date"><i class="far fa-calendar-alt"></i> 12 Juni 2025</span>
+                                    <span><i class="far fa-eye"></i> 587</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="compact-news-card">
+                            <div class="compact-image">
+                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Beasiswa" loading="lazy">
+                            </div>
+                            <div class="compact-content">
+                                <span class="compact-category">BEASISWA</span>
+                                <h5>Pembukaan Beasiswa KIP Kuliah untuk Semester Ganjil</h5>
+                                <div class="compact-meta">
+                                    <span class="compact-date"><i class="far fa-calendar-alt"></i> 10 Juni 2025</span>
+                                    <span><i class="far fa-eye"></i> 1.2K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="compact-news-card">
+                            <div class="compact-image">
+                                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Penelitian" loading="lazy">
+                            </div>
+                            <div class="compact-content">
+                                <span class="compact-category">PENELITIAN</span>
+                                <h5>Dosen UCIC Raih Hibah Penelitian Kemenristek 2025</h5>
+                                <div class="compact-meta">
+                                    <span class="compact-date"><i class="far fa-calendar-alt"></i> 8 Juni 2025</span>
+                                    <span><i class="far fa-eye"></i> 456</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="compact-news-card">
+                            <div class="compact-image">
+                                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Olahraga" loading="lazy">
+                            </div>
+                            <div class="compact-content">
+                                <span class="compact-category">OLAHRAGA</span>
+                                <h5>Tim Futsal UCIC Juara 2 di Kompetisi Antar Kampus</h5>
+                                <div class="compact-meta">
+                                    <span class="compact-date"><i class="far fa-calendar-alt"></i> 5 Juni 2025</span>
+                                    <span><i class="far fa-eye"></i> 789</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="compact-news-card">
+                            <div class="compact-image">
+                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Olahraga" loading="lazy">
+                            </div>
+                            <div class="compact-content">
+                                <span class="compact-category">WEB DESIGN</span>
+                                <h5>Tim Sistem Informasi, Juara 2 di Kompetisi Antar Kampus</h5>
+                                <div class="compact-meta">
+                                    <span class="compact-date"><i class="far fa-calendar-alt"></i> 5 Juni 2025</span>
+                                    <span><i class="far fa-eye"></i> 789</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="pagination">
+            <div class="page-btn"><i class="fas fa-chevron-left"></i></div>
+            <div class="page-btn active">1</div>
+            <div class="page-btn">2</div>
+            <div class="page-btn">3</div>
+            <div class="page-btn">4</div>
+            <div class="page-btn"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo-area">
+                        <img src="assets/img/ucic.png" alt="UCIC Logo">
+                        <div class="footer-logo-text">UCIC</div>
+                    </div>
+                    <p>Universitas Catur Insan Cendekia berkomitmen untuk memberikan pendidikan tinggi berkualitas dalam
+                        menciptakan generasi unggul yang berkarakter dan berkompetensi.</p>
+                    <div class="footer-social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tentang-ucic.html">Tentang Kami</a></li>
+                        <li><a href="fakultas.html">Fakultas</a></li>
+                        <li><a href="fasilitas.html">Fasilitas</a></li>
+                        <li><a href="pmb.html">Pendaftaran</a></li>
+                        <li><a href="kontak.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan Akademik</h3>
+                    <ul>
+                        <li><a href="#">Kalender Akademik</a></li>
+                        <li><a href="#">Sistem Informasi Akademik</a></li>
+                        <li><a href="#">Perpustakaan Digital</a></li>
+                        <li><a href="#">Beasiswa</a></li>
+                        <li><a href="#">Kerjasama Industri</a></li>
+                        <li><a href="#">Magang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Berlangganan newsletter kami untuk informasi terbaru tentang berita kampus dan kegiatan terbaru.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Alamat Email Anda">
+                        <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 Universitas Catur Insan Cendekia. Seluruh Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.news-card, .compact-news-card, .featured-news');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+
+            document.querySelectorAll('.news-card, .compact-news-card, .featured-news').forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-10px) rotate(1deg)';
+                });
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) rotate(0)';
+                });
+            });
+
+            const tickerContent = document.querySelector('.ticker-content');
+            if (tickerContent) {
+                const items = tickerContent.querySelectorAll('.ticker-item');
+                items.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    tickerContent.appendChild(clone);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
