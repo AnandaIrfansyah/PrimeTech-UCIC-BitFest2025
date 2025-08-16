@@ -2769,7 +2769,7 @@ nav ul li a.active::after {
 }
 /* Specific styles for Tentang UCIC page */
 .hero-tentang {
-  background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 51, 102, 0.7)), url("assets/img/gedung-cic.png") no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 51, 102, 0.7)), url('../img/gedung-cic.png') no-repeat center center/cover;
   color: var(--white);
   padding: 150px 0;
   text-align: center;
