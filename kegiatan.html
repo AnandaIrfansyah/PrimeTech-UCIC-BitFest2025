@@ -12,6 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/img/ucic.png">
     <style>
         :root {
             --primary-blue: #0056b3;
@@ -48,20 +49,107 @@
             }
         }
 
-        .events-hero {
+        /* Hero Section */
+        .announcement-hero {
             background: linear-gradient(135deg, rgba(0, 86, 179, 0.9) 0%, rgba(0, 51, 102, 0.9) 100%),
-                url('assets/img/events-bg.jpg') center/cover;
+                url('assets/img/announcement-bg.jpg') center/cover;
             color: white;
             padding: 140px 0 100px;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .hero-content h1 {
             font-family: "Playfair Display", serif;
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            opacity: 0.9;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 2;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .element-1 {
+            top: 20%;
+            left: 5%;
+            font-size: 80px;
+            animation-delay: 0s;
+        }
+
+        .element-2 {
+            bottom: 15%;
+            right: 5%;
+            font-size: 100px;
+            animation-delay: 2s;
+        }
+
+        /* Search Box */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 18px 30px;
+            border-radius: 50px;
+            border: none;
+            font-size: 16px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            box-shadow: 0 5px 30px rgba(0, 86, 179, 0.3);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 13px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-btn:hover {
+            background: var(--dark-blue);
+            transform: translateX(5px);
         }
 
         .event-filters {
@@ -287,9 +375,56 @@
             }
         }
         .section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            }
+        @media (max-width: 992px) {
+            .announcement-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .announcement-hero {
+                padding: 120px 0 80px;
+            }
+
+            .filter-tabs {
+                gap: 10px;
+            }
+
+            .filter-tab {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .card-image {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .search-box {
+                padding: 15px 25px;
+            }
+
+            .search-btn {
+                padding: 10px 20px;
+            }
+
+            .announcement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-content h3 {
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 
@@ -330,10 +465,23 @@
         </div>
     </header>
 
-    <section class="events-hero">
+    <section class="announcement-hero">
+        <i class="fas fa-bullhorn floating-element element-1"></i>
+        <i class="fas fa-scroll floating-element element-2"></i>
+    
+        <!-- Floating particles -->
+        <div class="particle" style="width: 10px; height: 10px; top: 30%; left: 20%; animation-duration: 15s;"></div>
+        <div class="particle" style="width: 15px; height: 15px; top: 60%; left: 80%; animation-duration: 20s;"></div>
+        <div class="particle" style="width: 8px; height: 8px; top: 70%; left: 30%; animation-duration: 12s;"></div>
+    
         <div class="hero-content">
-            <h1>Kegiatan Kampus UCIC</h1>
-            <p>Jadwal lengkap acara, seminar, workshop, dan kegiatan mahasiswa Universitas Catur Insan Cendekia</p>
+            <h1>Kegiatan Kampus</h1>
+            <p>Temukan informasi terbaru seputar kegiatan di Universitas Catur Insan
+                Cendekia</p>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Cari kegiatan...">
+                <button class="search-btn"><i class="fas fa-search"></i> Cari</button>
+            </div>
         </div>
     </section>
 
@@ -474,38 +622,7 @@
         </div>
     </footer>
 
-    <script>
-        document.querySelectorAll('.event-filter').forEach(filter => {
-            filter.addEventListener('click', function () {
-                document.querySelector('.event-filter.active').classList.remove('active');
-                this.classList.add('active');
-            });
-        });
-
-        const eventCards = document.querySelectorAll('.event-card, .upcoming-event-card');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                }
-            });
-        }, { threshold: 0.1 });
-
-        eventCards.forEach(card => {
-            observer.observe(card);
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-                setTimeout(function () {
-                    const loader = document.querySelector('.loader-container');
-                    loader.style.opacity = '0';
-                    setTimeout(function () {
-                        loader.style.display = 'none';
-                    }, 500);
-                }, 1000);
-            });
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
