@@ -1,3 +1,4 @@
+/* LOADER / PRELOADER */
 document.addEventListener("DOMContentLoaded", function () {
   const loader = document.querySelector(".loader-container");
   setTimeout(() => {
@@ -8,15 +9,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 800);
 });
 
+/* MOBILE NAVIGATION MENU */
 const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
 const navUl = document.querySelector("nav ul");
 
+// Toggle menu saat tombol diklik
 mobileMenuBtn.addEventListener("click", () => {
   navUl.classList.toggle("active");
   mobileMenuBtn.querySelector("i").classList.toggle("fa-bars");
   mobileMenuBtn.querySelector("i").classList.toggle("fa-times");
 });
 
+// Tutup menu setelah klik link (untuk mobile)
 navUl.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     if (window.innerWidth <= 768) {
@@ -27,6 +31,7 @@ navUl.querySelectorAll("a").forEach((link) => {
   });
 });
 
+// Reset menu saat resize ke layar lebih besar
 window.addEventListener("resize", () => {
   if (window.innerWidth > 768) {
     navUl.classList.remove("active");
@@ -35,11 +40,13 @@ window.addEventListener("resize", () => {
   }
 });
 
+/* DROPDOWN MENU (MOBILE ONLY) */
 document.querySelectorAll(".dropdown > a").forEach((dropdownLink) => {
   dropdownLink.addEventListener("click", (e) => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
       const dropdownContent = dropdownLink.nextElementSibling;
+
       if (dropdownContent) {
         document.querySelectorAll(".dropdown-content").forEach((content) => {
           if (content !== dropdownContent && content.style.display === "block") {
@@ -52,6 +59,7 @@ document.querySelectorAll(".dropdown > a").forEach((dropdownLink) => {
   });
 });
 
+/* SLIDER / CAROUSEL */
 const slides = document.querySelectorAll(".slider-section .slide");
 let currentSlide = 0;
 
@@ -70,9 +78,9 @@ function nextSlide() {
 }
 
 showSlide(currentSlide);
+setInterval(nextSlide, 7000); // Ganti slide tiap 7 detik
 
-setInterval(nextSlide, 7000);
-
+/* SMOOTH SCROLL (ANCHOR LINK) */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -80,4 +88,125 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       behavior: "smooth",
     });
   });
+});
+
+/* SCROLL TO TOP BUTTON */
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+// Tampilkan tombol saat scroll > 300px
+window.addEventListener("scroll", () => {
+  scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+// Scroll ke atas saat tombol diklik
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+/* ANNOUNCEMENT CARD ANIMATION */
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = document.querySelectorAll(".announcement-card");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  cards.forEach((card) => {
+    observer.observe(card);
+  });
+
+  // Filter tab (placeholder, logika filter bisa ditambah)
+  document.querySelectorAll(".filter-tab").forEach((tab) => {
+    tab.addEventListener("click", function () {
+      document.querySelector(".filter-tab.active").classList.remove("active");
+      this.classList.add("active");
+    });
+  });
+
+  // Hover effect untuk card
+  document.querySelectorAll(".announcement-card").forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-10px) rotateX(5deg)";
+    });
+    card.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0) rotateX(0)";
+    });
+  });
+});
+
+/* EVENT CARD ANIMATION */
+document.querySelectorAll(".event-filter").forEach((filter) => {
+  filter.addEventListener("click", function () {
+    document.querySelector(".event-filter.active").classList.remove("active");
+    this.classList.add("active");
+  });
+});
+
+const eventCards = document.querySelectorAll(".event-card, .upcoming-event-card");
+
+const eventObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
+eventCards.forEach((card) => {
+  eventObserver.observe(card);
+});
+
+/* NEWS CARD & TICKER ANIMATION */
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = document.querySelectorAll(".news-card, .compact-news-card, .featured-news");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  cards.forEach((card) => {
+    observer.observe(card);
+  });
+
+  // Hover effect untuk news card
+  document.querySelectorAll(".news-card, .compact-news-card, .featured-news").forEach((card) => {
+    card.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-10px) rotate(1deg)";
+    });
+    card.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0) rotate(0)";
+    });
+  });
+
+  // News ticker (duplikat item biar looping)
+  const tickerContent = document.querySelector(".ticker-content");
+  if (tickerContent) {
+    const items = tickerContent.querySelectorAll(".ticker-item");
+    items.forEach((item) => {
+      const clone = item.cloneNode(true);
+      tickerContent.appendChild(clone);
+    });
+  }
 });
