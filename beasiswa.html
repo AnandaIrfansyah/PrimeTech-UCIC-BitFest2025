@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beasiswa - Universitas Catur Insan Cendekia</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/png" href="assets/img/ucic.png" />
+  </head>
+
+  <body>
+    <div class="loader-container">
+      <div class="loader"></div>
+      <img src="assets/img/cic.png" alt="UCIC Logo" class="loader-logo" />
+    </div>
+
+    <header>
+      <div class="container header-container">
+        <a href="index.html" class="logo">
+          <div class="logo-img">
+            <img src="assets/img/ucic.png" alt="UCIC Logo" />
+          </div>
+          <div class="logo-text">Universitas Catur Insan Cendekia<span>Membangun Generasi Berkarakter dan Berkompetensi</span></div>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="https://pmb.cic.ac.id/" target="_blank">PMB</a></li>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tentang-ucic.html">Tentang UCIC</a></li>
+            <li><a href="fakultas.html">Fakultas</a></li>
+            <li class="dropdown">
+              <a href="#">Berita <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-content">
+                <li><a href="pengumuman.html">Pengumuman Kampus</a></li>
+                <li><a href="berita-kampus.html">Berita Kampus</a></li>
+                <li><a href="kegiatan.html">Kegiatan Kampus</a></li>
+              </ul>
+            </li>
+            <li><a href="beasiswa.html" class="active">Beasiswa</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </nav>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="modern-hero">
+      <div class="hero-content">
+        <h1>Informasi Beasiswa</h1>
+        <p>Temukan berbagai program beasiswa yang tersedia di Universitas Catur Insan Cendekia.</p>
+        <div class="scroll-down">
+          <a href="#scholarship" style="color: white; font-size: 2rem"><i class="fas fa-chevron-down"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="prestasi">Prestasi</button>
+          <button class="filter-btn" data-filter="kip">KIP Kuliah</button>
+          <button class="filter-btn" data-filter="internal">Internal UCIC</button>
+          <button class="filter-btn" data-filter="eksternal">Eksternal</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beasiswa List -->
+    <section class="scholarship-section" id="scholarship">
+      <div class="container">
+        <div class="scholarship-grid">
+          <!-- Beasiswa 1 -->
+          <div class="scholarship-card prestasi">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-internal.png" alt="Beasiswa Prestasi" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">Prestasi</span>
+              <h3>Beasiswa Prestasi Akademik</h3>
+              <p>Diberikan kepada mahasiswa berprestasi dengan IPK ≥ 3.5 serta aktif dalam kegiatan akademik dan non-akademik.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Beasiswa 2 -->
+          <div class="scholarship-card kip">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-kip.jpg" alt="Beasiswa KIP" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">KIP Kuliah</span>
+              <h3>Beasiswa KIP Kuliah</h3>
+              <p>Program bantuan pendidikan dari pemerintah untuk mahasiswa yang memiliki keterbatasan ekonomi.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Beasiswa 3 -->
+          <div class="scholarship-card internal">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-prestasi.jpg" alt="Beasiswa Internal" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">Internal</span>
+              <h3>Beasiswa Rektor UCIC</h3>
+              <p>Beasiswa penuh yang diberikan langsung oleh Rektor UCIC untuk mahasiswa berprestasi di tingkat nasional.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- Beasiswa 4 -->
+          <div class="scholarship-card eksternal">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-eksternal.jpg" alt="Beasiswa Eksternal" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">Eksternal</span>
+              <h3>Beasiswa Bank Indonesia</h3>
+              <p>Program beasiswa dari Bank Indonesia bagi mahasiswa aktif yang memiliki prestasi akademik dan sosial.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- Beasiswa 5 -->
+          <div class="scholarship-card prestasi">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-rapor.jpg" alt="Beasiswa Akademik" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">Prestasi</span>
+              <h3>Beasiswa Akademik (Rapor)</h3>
+              <p>Diberikan kepada mahasiswa baru berdasarkan nilai rapor dengan prestasi akademik yang konsisten.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Beasiswa 6 -->
+          <div class="scholarship-card prestasi">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-non-akademik.jpg" alt="Beasiswa Non Akademik" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">Prestasi</span>
+              <h3>Beasiswa Non Akademik</h3>
+              <p>Diberikan untuk mahasiswa dengan prestasi di bidang seni, olahraga, atau keterampilan non akademik.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Beasiswa 7 -->
+          <div class="scholarship-card internal">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-osis.png" alt="Beasiswa Pengurus OSIS" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">Internal</span>
+              <h3>Beasiswa Pengurus OSIS</h3>
+              <p>Beasiswa khusus untuk mahasiswa baru yang pernah aktif sebagai pengurus OSIS di sekolah asal.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Beasiswa 8 -->
+          <div class="scholarship-card internal">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-snbt.jpg" alt="Beasiswa SNBT/SNBP" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">Internal</span>
+              <h3>Beasiswa SNBT/SNBP</h3>
+              <p>Beasiswa untuk mahasiswa yang diterima melalui jalur SNBT atau SNBP dengan nilai tinggi.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Beasiswa 9 -->
+          <div class="scholarship-card internal">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-saudara.jpg" alt="Beasiswa Saudara Kandung" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">Internal</span>
+              <h3>Beasiswa Saudara Kandung</h3>
+              <p>Diperuntukkan bagi mahasiswa yang memiliki saudara kandung juga berkuliah di UCIC.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Beasiswa 10 -->
+          <div class="scholarship-card internal">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-profesi.png" alt="Beasiswa Anak Guru/TNI/Polisi" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">Internal</span>
+              <h3>Beasiswa Anak Guru / TNI / Polisi</h3>
+              <p>Beasiswa apresiasi khusus untuk anak Guru, anggota TNI, dan anggota Polri.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Beasiswa 11 -->
+          <div class="scholarship-card internal">
+            <div class="scholarship-image">
+              <img src="assets/img/beasiswa-driver.png" alt="Beasiswa UMKM/Pedagang Pasar/Driver Online" />
+            </div>
+            <div class="scholarship-content">
+              <span class="scholarship-category">Internal</span>
+              <h3>Beasiswa UMKM / Pedagang Pasar / Driver Online</h3>
+              <p>Diberikan untuk anak dari pelaku UMKM, pedagang pasar, maupun driver online sebagai bentuk dukungan pendidikan.</p>
+              <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="modern-cta">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Siap Memulai Perjalanan Akademik Anda?</h2>
+                <p>Bergabunglah dengan UCIC sekarang dan raih masa depan gemilang bersama fakultas unggulan kami. Daftarkan
+                    diri Anda dan mulailah petualangan pendidikan terbaik dalam hidup Anda!</p>
+                <a href="https://pmb.cic.ac.id/" target="_blank" class="btn-white">
+                    Daftar Online Sekarang <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-about">
+            <div class="footer-logo-area">
+              <img src="assets/img/ucic.png" alt="UCIC Logo" />
+              <div class="footer-logo-text">UCIC</div>
+            </div>
+            <p>Universitas Catur Insan Cendekia berkomitmen untuk memberikan pendidikan tinggi berkualitas dalam menciptakan generasi unggul yang berkarakter dan berkompetensi.</p>
+            <div class="footer-social-links">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h3>Tautan Cepat</h3>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="tentang-ucic.html">Tentang Kami</a></li>
+              <li><a href="fakultas.html">Fakultas</a></li>
+              <li><a href="fasilitas.html">Fasilitas</a></li>
+              <li><a href="pmb.html">Pendaftaran</a></li>
+              <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>Layanan Akademik</h3>
+            <ul>
+              <li><a href="#">Kalender Akademik</a></li>
+              <li><a href="#">Sistem Informasi Akademik</a></li>
+              <li><a href="#">Perpustakaan Digital</a></li>
+              <li><a href="#">Beasiswa</a></li>
+              <li><a href="#">Kerjasama Industri</a></li>
+              <li><a href="#">Magang</a></li>
+            </ul>
+          </div>
+          <div class="footer-newsletter">
+            <h3>Newsletter</h3>
+            <p>Berlangganan newsletter kami untuk informasi terbaru tentang penerimaan mahasiswa baru dan kegiatan kampus.</p>
+            <div class="newsletter-form">
+              <input type="email" placeholder="Alamat Email Anda" />
+              <button><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">© 2025 Universitas Catur Insan Cendekia. Seluruh Hak Cipta Dilindungi.</div>
+      </div>
+    </footer>
+
+    <button id="scrollTopBtn" class="btn">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="assets/js/script.js"></script>
+
+    <script>
+      // Filter beasiswa
+      
+    </script>
+  </body>
+</html>
