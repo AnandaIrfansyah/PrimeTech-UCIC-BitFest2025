@@ -210,3 +210,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// Filter beasiswa
+const filterBtns = document.querySelectorAll(".filter-btn");
+const cards = document.querySelectorAll(".scholarship-card");
+
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    filterBtns.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    let category = btn.getAttribute("data-filter");
+    cards.forEach((card) => {
+      if (category === "all" || card.classList.contains(category)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+});
