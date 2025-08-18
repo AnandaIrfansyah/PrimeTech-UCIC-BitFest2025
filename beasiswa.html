@@ -62,9 +62,9 @@
     </section>
 
     <!-- Filter -->
-    <section class="filter-section">
+    <!-- <section class="filter-section">
       <div class="container">
-        <div class="filter-buttons">
+        <div class="filter-tabs">
           <button class="filter-btn active" data-filter="all">Semua</button>
           <button class="filter-btn" data-filter="prestasi">Prestasi</button>
           <button class="filter-btn" data-filter="kip">KIP Kuliah</button>
@@ -72,11 +72,20 @@
           <button class="filter-btn" data-filter="eksternal">Eksternal</button>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Beasiswa List -->
     <section class="scholarship-section" id="scholarship">
       <div class="container">
+
+        <div class="filter-tabs">
+          <div class="filter-tab active" data-filter="all">Semua</div>
+          <div class="filter-tab" data-filter="prestasi">Prestasi</div>
+          <div class="filter-tab" data-filter="kip">KIP Kuliah</div>
+          <div class="filter-tab" data-filter="internal">Internal UCIC</div>
+          <div class="filter-tab" data-filter="eksternal">Eksternal</div>
+        </div>
+
         <div class="scholarship-grid">
           <!-- Beasiswa 1 -->
           <div class="scholarship-card prestasi">
@@ -194,7 +203,7 @@
           </div>
 
           <!-- Beasiswa 10 -->
-          <div class="scholarship-card internal">
+          <!-- <div class="scholarship-card internal">
             <div class="scholarship-image">
               <img src="assets/img/beasiswa-profesi.png" alt="Beasiswa Anak Guru/TNI/Polisi" />
             </div>
@@ -204,10 +213,10 @@
               <p>Beasiswa apresiasi khusus untuk anak Guru, anggota TNI, dan anggota Polri.</p>
               <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
             </div>
-          </div>
+          </div> -->
 
           <!-- Beasiswa 11 -->
-          <div class="scholarship-card internal">
+          <!-- <div class="scholarship-card internal">
             <div class="scholarship-image">
               <img src="assets/img/beasiswa-driver.png" alt="Beasiswa UMKM/Pedagang Pasar/Driver Online" />
             </div>
@@ -217,7 +226,16 @@
               <p>Diberikan untuk anak dari pelaku UMKM, pedagang pasar, maupun driver online sebagai bentuk dukungan pendidikan.</p>
               <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
             </div>
-          </div>
+          </div> -->
+          
+        </div>
+        <div class="pagination">
+          <div class="page-btn"><i class="fas fa-chevron-left"></i></div>
+          <div class="page-btn active">1</div>
+          <div class="page-btn">2</div>
+          <div class="page-btn">3</div>
+          <div class="page-btn">4</div>
+          <div class="page-btn"><i class="fas fa-chevron-right"></i></div>
         </div>
       </div>
     </section>
