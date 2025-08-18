@@ -9,6 +9,42 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 800);
 });
 
+// ===== Testimonial Slider =====
+// Testimonial Slider
+let testimonialIndex = 0;
+const testimonialSlides = document.querySelectorAll(".testimonial-slide");
+const testimonialDots = document.querySelectorAll(".testimonial-nav .dot");
+
+function showTestimonial(n) {
+  testimonialSlides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    testimonialDots[i].classList.remove("active");
+    if (i === n) {
+      slide.classList.add("active");
+      testimonialDots[i].classList.add("active");
+    }
+  });
+  testimonialIndex = n;
+}
+
+function autoTestimonial() {
+  testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+  showTestimonial(testimonialIndex);
+}
+
+let testimonialInterval = setInterval(autoTestimonial, 5000);
+
+testimonialDots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    showTestimonial(i);
+    clearInterval(testimonialInterval);
+    testimonialInterval = setInterval(autoTestimonial, 5000);
+  });
+});
+
+showTestimonial(testimonialIndex);
+
+
 /* MOBILE NAVIGATION MENU */
 const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
 const navUl = document.querySelector("nav ul");

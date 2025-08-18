@@ -373,6 +373,106 @@ nav ul li a.active::after {
   margin-top: auto;
 }
 /* End News */
+/* ===== Testimonial Section ===== */
+.testimonial-section {
+  padding: 80px 20px;
+  background: #f8f9fc;
+  text-align: center;
+}
+
+.testimonial-slider {
+  position: relative;
+  max-width: 1000px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.testimonial-slide {
+  display: none;
+  justify-content: center;
+  gap: 15px;
+}
+
+.testimonial-slide.active {
+  display: flex;
+}
+
+.testimonial-card {
+  flex: 1;
+  max-width: 45%; /* biar 2 card muat dalam 1 baris */
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 15px;
+  margin: 0.7rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0066cc;
+  margin-bottom: 15px;
+}
+
+.testimonial-content p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.testimonial-content h3 {
+  margin: 0;
+  font-weight: 600;
+  color: #003366;
+}
+
+.testimonial-content .role {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Dot navigation */
+.testimonial-nav {
+  margin-top: 5px;
+}
+
+.testimonial-nav .dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #bbb;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.testimonial-nav .dot.active {
+  background: #0066cc;
+}
+/* Responsive: 1 card di mobile */
+@media (max-width: 768px) {
+  .testimonial-slide {
+    flex-direction: column;
+  }
+
+  .testimonial-card {
+    max-width: 100%;
+  }
+}
+/* End Testimonial Section */
 /* Fakultas */
 .modern-hero {
   background: var(--gradient-blue);
