@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://link-demo.com"><img src="https://img.shields.io/badge/Live%20Demo-Online-blue?style=for-the-badge&logo=vercel"></a>
+  <a href="https://anandairfansyah.github.io/PrimeTech-UCIC-BitFest2025/"><img src="https://img.shields.io/badge/Live%20Demo-Online-blue?style=for-the-badge&logo=vercel"></a>
   <img src="https://img.shields.io/badge/HTML-5-orange?style=for-the-badge&logo=html5" />
   <img src="https://img.shields.io/badge/CSS-3-blue?style=for-the-badge&logo=css3" />
   <img src="https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript" />
@@ -56,6 +56,7 @@ PrimeTech-UCIC-BitFest2025/
 ├── tentang-ucic.html        # Halaman tentang UCIC
 └── README.md                # Dokumentasi project
 ```
+
 ---
 
 ## ⚡ Fitur Utama
@@ -116,7 +117,7 @@ Atau cukup buka [demo online](https://anandairfansyah.github.io/PrimeTech-UCIC-B
 
 ## 👨‍💻 Author
 
-Dibuat dengan ❤️ oleh [Ananda Irfansyah](https://github.com/AnandaIrfansyah) & [Fernando Valentino](https://github.com/Fernando-Valentino)
+Dibuat oleh [Ananda Irfansyah](https://github.com/AnandaIrfansyah) & [Fernando Valentino](https://github.com/Fernando-Valentino)
 
 <p align="center">
   <sub>© 2025 - Redesign CIC Landing Page</sub>
