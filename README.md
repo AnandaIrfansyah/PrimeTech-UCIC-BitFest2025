@@ -55,7 +55,7 @@ PrimeTech-UCIC-BitFest2025/
 ├── pengumuman.html          # Halaman pengumuman kampus
 ├── tentang-ucic.html        # Halaman tentang UCIC
 └── README.md                # Dokumentasi project
-
+```
 ---
 
 ## ⚡ Fitur Utama
