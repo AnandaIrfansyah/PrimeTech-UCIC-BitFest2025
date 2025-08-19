@@ -86,7 +86,7 @@ Atau cukup buka [demo online](https://link-demo.com) 🎉
 
 - ⚡ **HTML5** → struktur halaman  
 - 🎨 **CSS3** → styling modern & responsif  
-- ✨ _(Opsional)_ **JavaScript** → animasi & interaksi tambahan  
+- ✨ **JavaScript** → animasi & interaksi tambahan  
 
 ---
 
