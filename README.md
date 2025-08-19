@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://link-demo.com"><img src="https://img.shields.io/badge/Live%20Demo-Online-blue?style=for-the-badge&logo=vercel" /></a>
+  <a href="https://link-demo.com"><img src="https://anandairfansyah.github.io/PrimeTech-UCIC-BitFest2025/" /></a>
   <img src="https://img.shields.io/badge/HTML-5-orange?style=for-the-badge&logo=html5" />
   <img src="https://img.shields.io/badge/CSS-3-blue?style=for-the-badge&logo=css3" />
   <img src="https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript" />
@@ -31,7 +31,7 @@ Redesign landing page **CIC** dibuat untuk menghadirkan:
 
 ## 🚀 Live Demo
 
-🔗 [Klik di sini untuk melihat versi online](https://link-demo.com)
+🔗 [Klik di sini untuk melihat versi online](https://anandairfansyah.github.io/PrimeTech-UCIC-BitFest2025/)
 
 ---
 
@@ -83,7 +83,7 @@ open index.html   # (MacOS)
 start index.html  # (Windows)
 ```
 
-Atau cukup buka [demo online](https://link-demo.com) 🎉
+Atau cukup buka [demo online](https://anandairfansyah.github.io/PrimeTech-UCIC-BitFest2025/) 🎉
 
 ---
 
