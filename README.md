@@ -37,23 +37,24 @@ Redesign landing page **CIC** dibuat untuk menghadirkan:
 
 ## 📦 Struktur Project
 
-WEB DESIGN-UCIC/
+```bash
+PrimeTech-UCIC-BitFest2025/
 ├── assets/
-│ ├── css/
-│ │ └── style.css # File utama untuk styling
-│ ├── img/ # Folder untuk gambar
-│ └── js/
-│ └── script.js # File JavaScript untuk interaksi
-├── beasiswa.html # Halaman beasiswa
-├── berita-kampus.html # Halaman berita kampus
-├── fakultas.html # Halaman fakultas
-├── fasilitas.html # Halaman fasilitas
-├── index.html # Landing page utama
-├── kegiatan.html # Halaman kegiatan
-├── kontak.html # Halaman kontak
-├── pengumuman.html # Halaman pengumuman kampus
-├── tentang-ucic.html # Halaman tentang UCIC
-└── README.md # Dokumentasi project
+│   ├── css/
+│   │   └── style.css        # File utama untuk styling
+│   ├── img/                 # Folder untuk gambar
+│   └── js/
+│       └── script.js        # File JavaScript untuk interaksi
+├── beasiswa.html            # Halaman beasiswa
+├── berita-kampus.html       # Halaman berita kampus
+├── fakultas.html            # Halaman fakultas
+├── fasilitas.html           # Halaman fasilitas
+├── index.html               # Landing page utama
+├── kegiatan.html            # Halaman kegiatan
+├── kontak.html              # Halaman kontak
+├── pengumuman.html          # Halaman pengumuman kampus
+├── tentang-ucic.html        # Halaman tentang UCIC
+└── README.md                # Dokumentasi project
 
 ---
 
