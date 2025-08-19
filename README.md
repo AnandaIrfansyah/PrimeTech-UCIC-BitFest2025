@@ -13,6 +13,7 @@
   <a href="https://link-demo.com"><img src="https://img.shields.io/badge/Live%20Demo-Online-blue?style=for-the-badge&logo=vercel" /></a>
   <img src="https://img.shields.io/badge/HTML-5-orange?style=for-the-badge&logo=html5" />
   <img src="https://img.shields.io/badge/CSS-3-blue?style=for-the-badge&logo=css3" />
+  <img src="https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript" />
 </p>
 
 ---
@@ -21,10 +22,10 @@
 
 Redesign landing page **CIC** dibuat untuk menghadirkan:
 
-- 🌐 **Tampilan modern** → desain clean, minimalis, dan elegan  
-- 📱 **Responsif penuh** → mendukung desktop, tablet, hingga mobile  
-- 🎯 **Navigasi intuitif** → informasi lebih mudah diakses  
-- ✨ **Konsistensi UI** → warna & tipografi mengikuti branding CIC  
+- 🌐 **Tampilan modern** → desain clean, minimalis, dan elegan
+- 📱 **Responsif penuh** → mendukung desktop, tablet, hingga mobile
+- 🎯 **Navigasi intuitif** → informasi lebih mudah diakses
+- ✨ **Konsistensi UI** → warna & tipografi mengikuti branding CIC
 
 ---
 
@@ -34,12 +35,34 @@ Redesign landing page **CIC** dibuat untuk menghadirkan:
 
 ---
 
+## 📦 Struktur Project
+
+WEB DESIGN-UCIC/
+├── assets/
+│   ├── css/
+│   │   └── style.css        # File utama untuk styling
+│   ├── img/                 # Folder untuk gambar
+│   └── js/
+│       └── script.js        # File JavaScript untuk interaksi
+├── beasiswa.html            # Halaman beasiswa
+├── berita-kampus.html       # Halaman berita kampus
+├── fakultas.html            # Halaman fakultas
+├── fasilitas.html           # Halaman fasilitas
+├── index.html               # Landing page utama
+├── kegiatan.html            # Halaman kegiatan
+├── kontak.html              # Halaman kontak
+├── pengumuman.html          # Halaman pengumuman kampus
+├── tentang-ucic.html        # Halaman tentang UCIC
+└── README.md                # Dokumentasi project
+
+---
+
 ## ⚡ Fitur Utama
 
 ✅ Desain responsif full device  
 ✅ Animasi & interaksi halus (CSS & JS opsional)  
 ✅ Struktur HTML yang rapi & mudah dikembangkan  
-✅ Optimasi untuk performa & SEO dasar  
+✅ Optimasi untuk performa & SEO dasar
 
 ---
 
@@ -84,9 +107,9 @@ Atau cukup buka [demo online](https://link-demo.com) 🎉
 
 ## 🧩 Teknologi yang Digunakan
 
-- ⚡ **HTML5** → struktur halaman  
-- 🎨 **CSS3** → styling modern & responsif  
-- ✨ **JavaScript** → animasi & interaksi tambahan  
+- ⚡ **HTML5** → struktur halaman
+- 🎨 **CSS3** → styling modern & responsif
+- ✨ **JavaScript** → animasi & interaksi tambahan
 
 ---
 
@@ -97,3 +120,6 @@ Dibuat dengan ❤️ oleh [Ananda Irfansyah](https://github.com/AnandaIrfansyah)
 <p align="center">
   <sub>© 2025 - Redesign CIC Landing Page</sub>
 </p>
+
+##
+Licensed under the [MIT License](https://github.com/AnandaIrfansyah/PrimeTech-UCIC-BitFest2025/blob/main/LICENSE).

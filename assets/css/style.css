@@ -83,14 +83,7 @@ header {
   font-size: 48px;
   line-height: 1.2;
 
-  background-image: linear-gradient(
-    90deg,
-    var(--tertiary-blue),
-    var(--secondary-blue),
-    var(--primary-blue),
-    var(--secondary-blue),
-    var(--tertiary-blue)
-  );
+  background-image: linear-gradient(90deg, var(--tertiary-blue), var(--secondary-blue), var(--primary-blue), var(--secondary-blue), var(--tertiary-blue));
 
   background-size: 200% auto; /* penting biar bisa "jalan" */
   -webkit-background-clip: text;
@@ -174,11 +167,14 @@ nav ul li a.active::after {
   background-color: var(--light-blue);
   color: var(--primary-blue);
 }
-.dropdown:hover .dropdown-content {
+.dropdown-content a:focus,
+.dropdown-content a:active {
+  background: none !important;
+  color: inherit !important;
+  outline: none;
+}
+.dropdown-content.show {
   display: block;
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
 }
 .mobile-menu-btn {
   display: none;
@@ -221,11 +217,7 @@ nav ul li a.active::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
   z-index: 1;
 }
 .slide-content {
@@ -492,8 +484,7 @@ nav ul li a.active::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80")
-    center/cover;
+  background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80") center/cover;
   opacity: 0.15;
   z-index: 1;
 }
@@ -718,12 +709,7 @@ nav ul li a.active::after {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: 0.5s;
 }
 .btn-cta:hover {
@@ -1026,12 +1012,7 @@ nav ul li a.active::after {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: 0.5s;
 }
 .btn-cta:hover {
@@ -1485,9 +1466,10 @@ footer {
 @media (max-width: 768px) {
   .header-container {
     padding: 15px 0;
+    position: relative;
   }
   .logo-text {
-    font-size: 18px;
+    font-size: 12px;
   }
   .logo-text span {
     font-size: 12px;
@@ -1510,14 +1492,16 @@ footer {
     display: flex;
   }
   nav ul li {
-    margin: 0;
+    margin: 5px 0; 
     width: 100%;
   }
   nav ul li a {
-    padding: 15px 25px;
+    padding: 8px 20px; 
     width: 100%;
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
+    display: block;
+    margin: 0; 
   }
   nav ul li a.active::after {
     display: none;
@@ -1537,7 +1521,15 @@ footer {
     font-size: 15px;
   }
   .mobile-menu-btn {
-    display: block;
+    position: absolute;
+    right: 15px; /* geser agak ke kiri dari tepi */
+    top: 20px; /* sesuaikan biar sejajar logo */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--primary-blue);
+    cursor: pointer;
+    z-index: 1100;
   }
   .slider-section {
     height: 450px;
@@ -1717,12 +1709,7 @@ footer {
   }
 }
 .news-hero {
-  background: linear-gradient(
-      135deg,
-      rgba(0, 86, 179, 0.9) 0%,
-      rgba(0, 51, 102, 0.9) 100%
-    ),
-    url("assets/img/news-bg.jpg") center/cover;
+  background: linear-gradient(135deg, rgba(0, 86, 179, 0.9) 0%, rgba(0, 51, 102, 0.9) 100%), url("assets/img/news-bg.jpg") center/cover;
   color: white;
   padding: 140px 0 100px;
   text-align: center;
@@ -2307,12 +2294,7 @@ footer {
   }
 }
 .events-hero {
-  background: linear-gradient(
-      135deg,
-      rgba(0, 86, 179, 0.9) 0%,
-      rgba(0, 51, 102, 0.9) 100%
-    ),
-    url("assets/img/events-bg.jpg") center/cover;
+  background: linear-gradient(135deg, rgba(0, 86, 179, 0.9) 0%, rgba(0, 51, 102, 0.9) 100%), url("assets/img/events-bg.jpg") center/cover;
   color: white;
   padding: 140px 0 100px;
   text-align: center;
@@ -2565,12 +2547,7 @@ footer {
 }
 /* Hero Section */
 .announcement-hero {
-  background: linear-gradient(
-      135deg,
-      rgba(0, 86, 179, 0.9) 0%,
-      rgba(0, 51, 102, 0.9) 100%
-    ),
-    url("assets/img/announcement-bg.jpg") center/cover;
+  background: linear-gradient(135deg, rgba(0, 86, 179, 0.9) 0%, rgba(0, 51, 102, 0.9) 100%), url("assets/img/announcement-bg.jpg") center/cover;
   color: white;
   padding: 140px 0 100px;
   text-align: center;
@@ -2694,11 +2671,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    var(--primary-blue),
-    var(--secondary-blue)
-  );
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
@@ -3013,41 +2986,6 @@ header {
   color: var(--dark-gray);
   font-weight: 400;
 }
-nav ul {
-  display: flex;
-  list-style: none;
-}
-nav ul li {
-  margin-left: 35px;
-  position: relative;
-}
-nav ul li a {
-  text-decoration: none;
-  color: var(--dark-gray);
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s ease, transform 0.2s ease;
-  position: relative;
-  padding: 12px 0;
-}
-nav ul li a:hover {
-  color: var(--primary-blue);
-  transform: translateY(-2px);
-}
-nav ul li a.active {
-  color: var(--primary-blue);
-  font-weight: 600;
-}
-nav ul li a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: var(--primary-blue);
-  border-radius: 3px;
-}
 .dropdown-content {
   display: none;
   position: absolute;
@@ -3131,8 +3069,7 @@ nav ul li a.active::after {
 }
 /* Specific styles for Tentang UCIC page */
 .hero-tentang {
-  background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 51, 102, 0.7)),
-    url("../img/gedung-cic.png") no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 51, 102, 0.7)), url("../img/gedung-cic.png") no-repeat center center/cover;
   color: var(--white);
   padding: 150px 0;
   text-align: center;
@@ -3525,10 +3462,10 @@ footer {
     padding: 15px 0;
   }
   .logo-text {
-    font-size: 18px;
+    font-size: 16px;
   }
   .logo-text span {
-    font-size: 12px;
+    font-size: 10px;
   }
   nav ul {
     display: none;
@@ -3552,7 +3489,7 @@ footer {
     width: 100%;
   }
   nav ul li a {
-    padding: 15px 25px;
+    padding: 8px 25px;
     width: 100%;
     text-align: left;
     font-size: 16px;
@@ -3680,227 +3617,5 @@ footer {
   }
   .newsletter-form button {
     padding: 12px 20px;
-  }
-}
-
-/* Fasilitas Page Styles */
-.hero-tentang {
-  background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 51, 102, 0.7)),
-    url("../img/gedung-cic.png") no-repeat center center/cover;
-  color: var(--white);
-  padding: 150px 0;
-  text-align: center;
-  position: relative;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-}
-
-.hero-tentang h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 60px;
-  margin-bottom: 20px;
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero-tentang p {
-  font-size: 22px;
-  max-width: 800px;
-  margin: 0 auto;
-  opacity: 0.9;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.facility-detail-section {
-  padding: 100px 0;
-  background-color: var(--white);
-}
-
-.facility-detail {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  margin-bottom: 80px;
-  flex-wrap: wrap;
-}
-
-.facility-detail.reverse {
-  flex-direction: row-reverse;
-}
-
-.facility-detail-image {
-  flex: 1;
-  min-width: 300px;
-}
-
-.facility-detail-image img {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: var(--shadow-medium);
-  transition: transform 0.4s ease;
-}
-
-.facility-detail:hover .facility-detail-image img {
-  transform: scale(1.02);
-}
-
-.facility-detail-content {
-  flex: 1;
-  min-width: 300px;
-}
-
-.facility-detail-content h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 36px;
-  color: var(--dark-blue);
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.facility-detail-content p {
-  font-size: 17px;
-  color: #555;
-  margin-bottom: 25px;
-  line-height: 1.8;
-}
-
-.facility-features {
-  list-style: none;
-  padding-left: 0;
-}
-
-.facility-features li {
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 15px;
-  font-size: 16px;
-  color: #555;
-}
-
-.facility-features li i {
-  position: absolute;
-  left: 0;
-  top: 3px;
-  color: var(--primary-blue);
-  font-size: 20px;
-}
-
-.other-facilities-section {
-  padding: 100px 0;
-  background-color: var(--light-gray);
-}
-
-.other-facilities-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.other-facility-card {
-  background-color: var(--white);
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: var(--shadow-light);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.other-facility-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-medium);
-}
-
-.other-facility-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.other-facility-card:hover img {
-  transform: scale(1.05);
-}
-
-.other-facility-content {
-  padding: 25px;
-}
-
-.other-facility-content h3 {
-  font-size: 22px;
-  color: var(--dark-blue);
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.other-facility-content p {
-  font-size: 15px;
-  color: #666;
-}
-
-/* Responsive Styles */
-@media (max-width: 992px) {
-  .hero-tentang h1 {
-    font-size: 50px;
-  }
-
-  .hero-tentang p {
-    font-size: 20px;
-  }
-
-  .facility-detail-content h3 {
-    font-size: 32px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-tentang {
-    padding: 100px 0;
-  }
-
-  .hero-tentang h1 {
-    font-size: 40px;
-  }
-
-  .hero-tentang p {
-    font-size: 18px;
-  }
-
-  .facility-detail {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .facility-detail.reverse {
-    flex-direction: column;
-  }
-
-  .facility-detail-content h3 {
-    font-size: 28px;
-  }
-
-  .other-facilities-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-tentang h1 {
-    font-size: 32px;
-  }
-
-  .hero-tentang p {
-    font-size: 16px;
-  }
-
-  .facility-detail-content h3 {
-    font-size: 24px;
-  }
-
-  .facility-features li {
-    font-size: 15px;
-  }
-
-  .other-facilities-grid {
-    grid-template-columns: 1fr;
   }
 }

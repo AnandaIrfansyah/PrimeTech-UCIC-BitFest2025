@@ -56,10 +56,11 @@ mobileMenuBtn.addEventListener("click", () => {
   mobileMenuBtn.querySelector("i").classList.toggle("fa-times");
 });
 
-// Tutup menu setelah klik link (untuk mobile)
+// Tutup menu hanya jika klik link biasa, bukan dropdown
 navUl.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    if (window.innerWidth <= 768) {
+  link.addEventListener("click", (e) => {
+    const parentLi = link.parentElement;
+    if (window.innerWidth <= 768 && !parentLi.classList.contains("dropdown")) {
       navUl.classList.remove("active");
       mobileMenuBtn.querySelector("i").classList.remove("fa-times");
       mobileMenuBtn.querySelector("i").classList.add("fa-bars");
@@ -77,23 +78,36 @@ window.addEventListener("resize", () => {
 });
 
 /* DROPDOWN MENU (MOBILE ONLY) */
+// Dropdown buka/tutup pakai klik
 document.querySelectorAll(".dropdown > a").forEach((dropdownLink) => {
   dropdownLink.addEventListener("click", (e) => {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      const dropdownContent = dropdownLink.nextElementSibling;
+    e.preventDefault(); // cegah link "#" reload
 
-      if (dropdownContent) {
-        document.querySelectorAll(".dropdown-content").forEach((content) => {
-          if (content !== dropdownContent && content.style.display === "block") {
-            content.style.display = "none";
-          }
-        });
-        dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
-      }
+    const dropdownContent = dropdownLink.nextElementSibling;
+
+    // Kalau dropdown sedang terbuka, tutup
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      // Tutup semua dropdown lain dulu
+      document.querySelectorAll(".dropdown-content").forEach((content) => {
+        content.style.display = "none";
+      });
+      // Buka dropdown yang diklik
+      dropdownContent.style.display = "block";
     }
   });
 });
+
+// Tutup semua dropdown kalau klik di luar
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdown-content").forEach((content) => {
+      content.style.display = "none";
+    });
+  }
+});
+
 
 /* SLIDER / CAROUSEL */
 const slides = document.querySelectorAll(".slider-section .slide");
